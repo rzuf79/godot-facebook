@@ -1,39 +1,50 @@
-// Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
-//
-// You are hereby granted a non-exclusive, worldwide, royalty-free license to use,
-// copy, modify, and distribute this software in source code or binary form for use
-// in connection with the web services and APIs provided by Facebook.
-//
-// As with any software that integrates with the Facebook platform, your use of
-// this software is subject to the Facebook Developer Principles and Policies
-// [http://developers.facebook.com/policy/]. This copyright notice shall be
-// included in all copies or substantial portions of the software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-// COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-// IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+/*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class FBSDKGraphRequestConnection;
 @protocol FBSDKGraphRequest;
-typedef void (^FBSDKGraphRequestBlock)(FBSDKGraphRequestConnection *_Nullable connection,
-                                       id _Nullable result,
-                                       NSError *_Nullable error);
+@protocol FBSDKGraphRequestConnecting;
+@protocol FBSDKGraphRequestConnectionDelegate;
+
+/**
+ FBSDKGraphRequestCompletion
+
+ A block that is passed to addRequest to register for a callback with the results of that
+ request once the connection completes.
+
+ Pass a block of this type when calling addRequest.  This will be called once
+ the request completes.  The call occurs on the UI thread.
+
+ @param connection The connection that sent the request.
+
+ @param result The result of the request.  This is a translation of
+ JSON data to `NSDictionary` and `NSArray` objects.  This
+ is nil if there was an error.
+
+ @param error The `NSError` representing any error that occurred.
+ */
+NS_SWIFT_NAME(GraphRequestCompletion)
+typedef void (^FBSDKGraphRequestCompletion)(id<FBSDKGraphRequestConnecting> _Nullable connection,
+                                            id _Nullable result,
+                                            NSError *_Nullable error);
 
 /// A protocol to describe an object that can manage graph requests
 NS_SWIFT_NAME(GraphRequestConnecting)
 @protocol FBSDKGraphRequestConnecting
 
 @property (nonatomic, assign) NSTimeInterval timeout;
+@property (nullable, nonatomic, weak) id<FBSDKGraphRequestConnectionDelegate> delegate;
 
 - (void)addRequest:(id<FBSDKGraphRequest>)request
- completionHandler:(FBSDKGraphRequestBlock)handler;
+        completion:(FBSDKGraphRequestCompletion)handler;
 
 - (void)start;
 - (void)cancel;

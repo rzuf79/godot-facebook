@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25931B982804943900F51F06 /* FBSDKGamingServicesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25931B972804943900F51F06 /* FBSDKGamingServicesKit.framework */; };
 		51AF4A68264A70F200BA8290 /* facebook_module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51AF4A64264A70F100BA8290 /* facebook_module.cpp */; };
 		51AF4A69264A70F200BA8290 /* Facebook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 51AF4A65264A70F100BA8290 /* Facebook.mm */; };
 		51AF4A6D264A714800BA8290 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AF4A6C264A714800BA8290 /* FBSDKCoreKit.framework */; };
@@ -27,6 +28,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		25931B972804943900F51F06 /* FBSDKGamingServicesKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKGamingServicesKit.framework; path = plugin/FBSDKGamingServicesKit.framework; sourceTree = "<group>"; };
 		51AF4A64264A70F100BA8290 /* facebook_module.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebook_module.cpp; sourceTree = "<group>"; };
 		51AF4A65264A70F100BA8290 /* Facebook.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Facebook.mm; sourceTree = "<group>"; };
 		51AF4A66264A70F100BA8290 /* facebook_module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebook_module.h; sourceTree = "<group>"; };
@@ -44,6 +46,7 @@
 			files = (
 				51AF4A72264A715E00BA8290 /* FBSDKShareKit.framework in Frameworks */,
 				51AF4A70264A715300BA8290 /* FBSDKLoginKit.framework in Frameworks */,
+				25931B982804943900F51F06 /* FBSDKGamingServicesKit.framework in Frameworks */,
 				51AF4A6D264A714800BA8290 /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,8 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				51AF4A64264A70F100BA8290 /* facebook_module.cpp */,
-				51AF4A65264A70F100BA8290 /* Facebook.mm */,
 				51AF4A66264A70F100BA8290 /* facebook_module.h */,
+				51AF4A65264A70F100BA8290 /* Facebook.mm */,
 				51AF4A67264A70F100BA8290 /* Facebook.hpp */,
 			);
 			name = src;
@@ -83,6 +86,7 @@
 		90CAAAA824E72A8A0013969F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25931B972804943900F51F06 /* FBSDKGamingServicesKit.framework */,
 				51AF4A71264A715E00BA8290 /* FBSDKShareKit.framework */,
 				51AF4A6F264A715300BA8290 /* FBSDKLoginKit.framework */,
 				51AF4A6C264A714800BA8290 /* FBSDKCoreKit.framework */,
@@ -116,7 +120,7 @@
 		90CAAA8C24E71FF10013969F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1330;
 				ORGANIZATIONNAME = Godot;
 				TargetAttributes = {
 					90CAAA9324E71FF10013969F = {
@@ -182,6 +186,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -207,7 +212,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -241,6 +246,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -260,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

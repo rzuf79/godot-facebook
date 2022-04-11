@@ -1,25 +1,16 @@
-// Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
-//
-// You are hereby granted a non-exclusive, worldwide, royalty-free license to use,
-// copy, modify, and distribute this software in source code or binary form for use
-// in connection with the web services and APIs provided by Facebook.
-//
-// As with any software that integrates with the Facebook platform, your use of
-// this software is subject to the Facebook Developer Principles and Policies
-// [http://developers.facebook.com/policy/]. This copyright notice shall be
-// included in all copies or substantial portions of the software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-// COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-// IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+/*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(AuthenticationTokenClaims)
 @interface FBSDKAuthenticationTokenClaims : NSObject
 
 /// A unique identifier for the token.
@@ -35,16 +26,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, strong) NSString *nonce;
 
 /// Expiration time on or after which the ID Token MUST NOT be accepted for processing.
-@property (nonatomic, readonly, assign) long exp;
+@property (nonatomic, readonly, assign) NSTimeInterval exp;
 
 /// Time at which the JWT was issued.
-@property (nonatomic, readonly, assign) long iat;
+@property (nonatomic, readonly, assign) NSTimeInterval iat;
 
 /// Subject - Identifier for the End-User at the Issuer.
 @property (nonatomic, readonly, strong) NSString *sub;
 
 /// End-User's full name in displayable form including all name parts.
 @property (nullable, nonatomic, readonly, strong) NSString *name;
+
+/// End-User's given name in displayable form
+@property (nullable, nonatomic, readonly, strong) NSString *givenName;
+
+/// End-User's middle name in displayable form
+@property (nullable, nonatomic, readonly, strong) NSString *middleName;
+
+/// End-User's family name in displayable form
+@property (nullable, nonatomic, readonly, strong) NSString *familyName;
 
 /**
  End-User's preferred e-mail address.
@@ -68,6 +68,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// End-User's age range
 @property (nullable, nonatomic, readonly, strong) NSDictionary<NSString *, NSNumber *> *userAgeRange;
+
+/// End-User's hometown
+@property (nullable, nonatomic, readonly, strong) NSDictionary<NSString *, NSString *> *userHometown;
+
+/// End-User's location
+@property (nullable, nonatomic, readonly, strong) NSDictionary<NSString *, NSString *> *userLocation;
+
+/// End-User's gender
+@property (nullable, nonatomic, readonly, strong) NSString *userGender;
+
+/// End-User's link
+@property (nullable, nonatomic, readonly, strong) NSString *userLink;
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

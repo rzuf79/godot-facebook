@@ -11,6 +11,7 @@
 @import FBSDKCoreKit;
 @import FBSDKLoginKit;
 @import FBSDKShareKit;
+@import FBSDKGamingServicesKit;
 #import <AdSupport/ASIdentifierManager.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
@@ -166,31 +167,31 @@ void FacebookPlugin::setFacebookCallbackId(Object* facebookcallback) {
 }
 
 void FacebookPlugin::gameRequest(const String message, const String recipient, const String objectId) {
-    
-    FBSDKGameRequestDialog *dialog = [[FBSDKGameRequestDialog alloc] init];
-    MyGameRequestDialogDelegate *delegate = [[MyGameRequestDialogDelegate alloc] init];
-    delegate.callbackOb = fbCallbackObj;
-    dialog.delegate = delegate;
-    if (![dialog canShow]) {
-        ERR_FAIL_COND(!fbCallbackObj);
-        fbCallbackObj->call_deferred("request_failed", String("Cannot show dialog"));
-        return;
-    }
-        
-    FBSDKGameRequestContent *content = [[FBSDKGameRequestContent alloc] init];
-        
-    //content.filters = FBSDKGameRequestFilterNone;
-    //content.filters = FBSDKGameRequestFilterAppUsers;
-    //content.filters = FBSDKGameRequestFilterAppNonUsers;
-        
-    //content.data = params[@"data"];
-    content.message = [NSString stringWithUTF8String:message.utf8().get_data()];
-    content.objectID = [NSString stringWithUTF8String:objectId.utf8().get_data()];
-    content.recipients = @[ [NSString stringWithUTF8String:recipient.utf8().get_data()] ];
-    //content.title = params[@"title"];
-        
-    dialog.content = content;
-    [dialog show];
+
+//    FBSDKGameRequestDialog *dialog = [[FBSDKGameRequestDialog alloc] init];
+//    MyGameRequestDialogDelegate *delegate = [[MyGameRequestDialogDelegate alloc] init];
+//    delegate.callbackOb = fbCallbackObj;
+//    dialog.delegate = delegate;
+//    if (![dialog canShow]) {
+//        ERR_FAIL_COND(!fbCallbackObj);
+//        fbCallbackObj->call_deferred("request_failed", String("Cannot show dialog"));
+//        return;
+//    }
+//
+//    FBSDKGameRequestContent *content = [[FBSDKGameRequestContent alloc] init];
+//
+//    //content.filters = FBSDKGameRequestFilterNone;
+//    //content.filters = FBSDKGameRequestFilterAppUsers;
+//    //content.filters = FBSDKGameRequestFilterAppNonUsers;
+//
+//    //content.data = params[@"data"];
+//    content.message = [NSString stringWithUTF8String:message.utf8().get_data()];
+//    content.objectID = [NSString stringWithUTF8String:objectId.utf8().get_data()];
+//    content.recipients = @[ [NSString stringWithUTF8String:recipient.utf8().get_data()] ];
+//    //content.title = params[@"title"];
+//
+//    dialog.content = content;
+//    [dialog show];
 }
 
 void FacebookPlugin::login(const Array permissions) {
