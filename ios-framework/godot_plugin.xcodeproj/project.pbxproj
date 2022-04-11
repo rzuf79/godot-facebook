@@ -3,16 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25931B982804943900F51F06 /* FBSDKGamingServicesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25931B972804943900F51F06 /* FBSDKGamingServicesKit.framework */; };
+		25931B9D28049CA700F51F06 /* FBSDKLoginKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25931B9928049CA700F51F06 /* FBSDKLoginKit.xcframework */; };
+		25931B9E28049CA700F51F06 /* FBSDKCoreKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25931B9A28049CA700F51F06 /* FBSDKCoreKit.xcframework */; };
+		25931B9F28049CA700F51F06 /* FBSDKShareKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25931B9B28049CA700F51F06 /* FBSDKShareKit.xcframework */; };
+		25931BA028049CA700F51F06 /* FBSDKGamingServicesKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25931B9C28049CA700F51F06 /* FBSDKGamingServicesKit.xcframework */; };
 		51AF4A68264A70F200BA8290 /* facebook_module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51AF4A64264A70F100BA8290 /* facebook_module.cpp */; };
 		51AF4A69264A70F200BA8290 /* Facebook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 51AF4A65264A70F100BA8290 /* Facebook.mm */; };
-		51AF4A6D264A714800BA8290 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AF4A6C264A714800BA8290 /* FBSDKCoreKit.framework */; };
-		51AF4A70264A715300BA8290 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AF4A6F264A715300BA8290 /* FBSDKLoginKit.framework */; };
-		51AF4A72264A715E00BA8290 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AF4A71264A715E00BA8290 /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,14 +28,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		25931B972804943900F51F06 /* FBSDKGamingServicesKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKGamingServicesKit.framework; path = plugin/FBSDKGamingServicesKit.framework; sourceTree = "<group>"; };
+		25931B9928049CA700F51F06 /* FBSDKLoginKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FBSDKLoginKit.xcframework; path = plugin/FBSDKLoginKit.xcframework; sourceTree = "<group>"; };
+		25931B9A28049CA700F51F06 /* FBSDKCoreKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FBSDKCoreKit.xcframework; path = plugin/FBSDKCoreKit.xcframework; sourceTree = "<group>"; };
+		25931B9B28049CA700F51F06 /* FBSDKShareKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FBSDKShareKit.xcframework; path = plugin/FBSDKShareKit.xcframework; sourceTree = "<group>"; };
+		25931B9C28049CA700F51F06 /* FBSDKGamingServicesKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FBSDKGamingServicesKit.xcframework; path = plugin/FBSDKGamingServicesKit.xcframework; sourceTree = "<group>"; };
 		51AF4A64264A70F100BA8290 /* facebook_module.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebook_module.cpp; sourceTree = "<group>"; };
 		51AF4A65264A70F100BA8290 /* Facebook.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Facebook.mm; sourceTree = "<group>"; };
 		51AF4A66264A70F100BA8290 /* facebook_module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebook_module.h; sourceTree = "<group>"; };
 		51AF4A67264A70F100BA8290 /* Facebook.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Facebook.hpp; sourceTree = "<group>"; };
-		51AF4A6C264A714800BA8290 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = plugin/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		51AF4A6F264A715300BA8290 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = plugin/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		51AF4A71264A715E00BA8290 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = plugin/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		90CAAA9424E71FF10013969F /* libgodot_plugin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgodot_plugin.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -44,10 +44,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51AF4A72264A715E00BA8290 /* FBSDKShareKit.framework in Frameworks */,
-				51AF4A70264A715300BA8290 /* FBSDKLoginKit.framework in Frameworks */,
-				25931B982804943900F51F06 /* FBSDKGamingServicesKit.framework in Frameworks */,
-				51AF4A6D264A714800BA8290 /* FBSDKCoreKit.framework in Frameworks */,
+				25931BA028049CA700F51F06 /* FBSDKGamingServicesKit.xcframework in Frameworks */,
+				25931B9F28049CA700F51F06 /* FBSDKShareKit.xcframework in Frameworks */,
+				25931B9D28049CA700F51F06 /* FBSDKLoginKit.xcframework in Frameworks */,
+				25931B9E28049CA700F51F06 /* FBSDKCoreKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,10 +86,10 @@
 		90CAAAA824E72A8A0013969F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				25931B972804943900F51F06 /* FBSDKGamingServicesKit.framework */,
-				51AF4A71264A715E00BA8290 /* FBSDKShareKit.framework */,
-				51AF4A6F264A715300BA8290 /* FBSDKLoginKit.framework */,
-				51AF4A6C264A714800BA8290 /* FBSDKCoreKit.framework */,
+				25931B9A28049CA700F51F06 /* FBSDKCoreKit.xcframework */,
+				25931B9C28049CA700F51F06 /* FBSDKGamingServicesKit.xcframework */,
+				25931B9928049CA700F51F06 /* FBSDKLoginKit.xcframework */,
+				25931B9B28049CA700F51F06 /* FBSDKShareKit.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
