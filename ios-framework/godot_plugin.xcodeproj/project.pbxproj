@@ -279,6 +279,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/godot",
 					"$(SRCROOT)/godot/platform/iphone",
+					"/Users/zrfu/dev/godot-core-ios-plugins/godot/platform/iphone",
+					"/Users/zrfu/dev/godot-core-ios-plugins/godot",
 				);
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -321,6 +323,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/godot",
 					"$(SRCROOT)/godot/platform/iphone",
+					"/Users/zrfu/dev/godot-core-ios-plugins/godot/platform/iphone",
+					"/Users/zrfu/dev/godot-core-ios-plugins/godot",
 				);
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
