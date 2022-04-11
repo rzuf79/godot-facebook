@@ -159,7 +159,7 @@ void FacebookPlugin::_init()
 void FacebookPlugin::init(const String& key) {
     [[FBSDKApplicationDelegate sharedInstance] application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:nil];
     loginManager = [[FBSDKLoginManager alloc] init];
-    [FBSDKSettings setAppID:[NSString stringWithUTF8String:key.utf8().get_data()]];
+    [FBSDKSettings.sharedSettings setAppID:[NSString stringWithUTF8String:key.utf8().get_data()]];
 }
 
 void FacebookPlugin::setFacebookCallbackId(Object* facebookcallback) {
@@ -241,7 +241,7 @@ bool FacebookPlugin::isLoggedIn() {
 void FacebookPlugin::userProfile(Object *callbackOb, const String& callbackMethod) {
     NSString *cbMethod = [NSString stringWithUTF8String:callbackMethod.utf8().get_data()];
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"/me" parameters:nil];
-    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+    [request startWithCompletion:^(id<FBSDKGraphRequestConnecting> connection, id result, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                     ERR_FAIL_COND(!callbackOb);
                     String strCbMethod(cbMethod.UTF8String);
@@ -267,7 +267,7 @@ void FacebookPlugin::callApi(const String path, const Dictionary properties, Obj
     NSString *cbMethod = [NSString stringWithUTF8String:callbackMethod.utf8().get_data()];
     NSDictionary *paramsDict = convertFromDictionary(properties);
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:pth parameters:paramsDict];
-    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+    [request startWithCompletion:^(id<FBSDKGraphRequestConnecting> connection, id result, NSError *error) {
             //dispatch_async(dispatch_get_main_queue(), ^{
                     ERR_FAIL_COND(!callbackOb);
                     String strCbMethod(cbMethod.UTF8String);
@@ -288,29 +288,29 @@ void FacebookPlugin::callApi(const String path, const Dictionary properties, Obj
 
 void FacebookPlugin::pushToken(const String& token) {
     NSData *data = [NSData dataWithBytes:token.utf8().get_data() length:token.utf8().length()];
-    [FBSDKAppEvents setPushNotificationsDeviceToken:data];
+    [FBSDKAppEvents.shared setPushNotificationsDeviceToken:data];
 }
 
 void FacebookPlugin::logEvent(const String& event) {
     NSString *event_name = [NSString stringWithUTF8String:event.utf8().get_data()];
-    [FBSDKAppEvents logEvent:event_name];
+    [FBSDKAppEvents.shared logEvent:event_name];
 }
 
 void FacebookPlugin::logEventValue(const String& event, double value) {
     NSString *event_name = [NSString stringWithUTF8String:event.utf8().get_data()];
-    [FBSDKAppEvents logEvent:event_name valueToSum:value];
+    [FBSDKAppEvents.shared logEvent:event_name valueToSum:value];
 }
 
 void FacebookPlugin::logEventParams(const String& event, const Dictionary params) {
     NSString *event_name = [NSString stringWithUTF8String:event.utf8().get_data()];
     NSDictionary *paramsDict = convertFromDictionary(params);
-    [FBSDKAppEvents logEvent:event_name parameters:paramsDict];
+    [FBSDKAppEvents.shared logEvent:event_name parameters:paramsDict];
 }
 
 void FacebookPlugin::logEventValueParams(const String& event, double value, const Dictionary params) {
     NSString *event_name = [NSString stringWithUTF8String:event.utf8().get_data()];
     NSDictionary *paramsDict = convertFromDictionary(params);
-    [FBSDKAppEvents logEvent:event_name valueToSum:value parameters:paramsDict];
+    [FBSDKAppEvents.shared logEvent:event_name valueToSum:value parameters:paramsDict];
 }
 
 String FacebookPlugin::advertisingID() {
@@ -394,7 +394,7 @@ Array FacebookPlugin::extinfo() {
 void FacebookPlugin::setAdvertiserTracking(bool enabled)
 {
     if (@available(iOS 14, *)) {
-        [FBSDKSettings setAdvertiserTrackingEnabled: enabled];
+        [FBSDKSettings.sharedSettings setAdvertiserTrackingEnabled: enabled];
     }
 }
 
