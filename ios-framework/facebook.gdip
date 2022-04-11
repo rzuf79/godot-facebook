@@ -6,7 +6,7 @@ initialization="register_facebook_types"
 deinitialization="unregister_facebook_types"
 
 [dependencies]
-linked=["./FBSDKCoreKit.framework", "./FBSDKLoginKit.framework", "./FBSDKShareKit.framework"]
+linked=["./FBSDKCoreKit.xcframework", "./FBSDKLoginKit.xcframework", "./FBSDKShareKit.xcframework", "./FBSDKGamingServicesKit.xcframework"]
 embedded=[]
 system=[]
 
@@ -15,3 +15,4 @@ capabilities=[]
 files=[]
 
 [plist]
+FacebookClientToken:string="INSERT_TOKEN_HERE"
